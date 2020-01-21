@@ -1,18 +1,21 @@
 import 'reflect-metadata'
 import { Model } from './db.model'
+import { NgxDbPortal } from './db.portal'
 
 // @dynamic
 export class ChildModel {
   public readonly parent: Model
 
-  constructor(data: any = {}, parent: Model) {
-    this.parent = parent
-    Object.assign(this, data)
-  }
+  public static service(name: string) { return NgxDbPortal.services[name] }
 
   public static deserialize(data: any, parent: Model) {
     const record = new this(data, parent)
     return record
+  }
+
+  constructor(data: any = {}, parent: Model) {
+    this.parent = parent
+    Object.assign(this, data)
   }
 
   public serialize() {
@@ -25,4 +28,6 @@ export class ChildModel {
   public getParent<T extends Model>() {
     return this.parent as T
   }
+
+  public service(name: string) { return NgxDbPortal.services[name] }
 }

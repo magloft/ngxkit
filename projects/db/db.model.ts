@@ -25,39 +25,29 @@ export class Model {
   public id?: number
 
   public static get store() { return camelize(pluralize(this.name), true)}
-  public get store() { return this.Class.store }
-
-  protected static get service() { return NgxDbPortal.dbService }
-  protected get service() { return NgxDbPortal.dbService }
-
-  constructor(data: any = {}) {
-    Object.assign(this, data)
-    for (const { key, ModelType } of getStoreCollections(this.store)) {
-      const entries = this[key] || []
-      this[key] = entries.map((entry) => ModelType.deserialize(entry, this))
-    }
-  }
+  public static get db() { return NgxDbPortal.dbService }
+  public static service(name: string) { return NgxDbPortal.services[name] }
 
   public static async findAll<T>(): Promise<T[]> {
-    const results = await this.service.findAll<any>(this.store)
+    const results = await this.db.findAll<any>(this.store)
     return results.map((result) => new this(result))
   }
 
   public static async findOne<T>(index: string, value: any): Promise<T> {
-    const result = await this.service.run(this.store, DBMode.readonly, (transaction) => {
+    const result = await this.db.run(this.store, DBMode.readonly, (transaction) => {
       return transaction.objectStore(this.store).index(index).get(value)
     })
     return result ? new this(result) as any : null
   }
 
   public static async findByKeys(keys): Promise<any> {
-    const results = await this.service.findByKeys(this.store, keys)
+    const results = await this.db.findByKeys(this.store, keys)
     return results.map((result) => new this(result))
   }
 
   public static async findBy(index: string, value: any) {
     const results = []
-    await this.service.findByCursor(this.store, (transaction) => {
+    await this.db.findByCursor(this.store, (transaction) => {
       return transaction.objectStore(this.store).index(index).openCursor()
     }, (cursor) => {
       if (cursor.key === value) { results.push(cursor.value) }
@@ -69,7 +59,7 @@ export class Model {
 
   public static async where(filter: any) {
     const results = []
-    await this.service.findByCursor(this.store, (transaction) => {
+    await this.db.findByCursor(this.store, (transaction) => {
       return transaction.objectStore(this.store).openCursor()
     }, (cursor) => {
       const mismatch = Object.entries(filter).find(([key, value]) => {
@@ -85,7 +75,7 @@ export class Model {
   }
 
   public static async removeAll() {
-    await this.service.removeAll(this.store)
+    await this.db.removeAll(this.store)
   }
 
   public static async create(data: any): Promise<any> {
@@ -94,18 +84,30 @@ export class Model {
     return record as any
   }
 
+  public get store() { return this.Class.store }
+  protected get db() { return NgxDbPortal.dbService }
+  public service(name: string) { return NgxDbPortal.services[name] }
+
+  constructor(data: any = {}) {
+    Object.assign(this, data)
+    for (const { key, ModelType } of getStoreCollections(this.store)) {
+      const entries = this[key] || []
+      this[key] = entries.map((entry) => ModelType.deserialize(entry, this))
+    }
+  }
+
   public async save(data: any = {}) {
     if (data) { Object.assign(this, data) }
     const attributes = { ...this.attributes }
     if (this.id) {
-      await this.service.update(this.store, attributes)
+      await this.db.update(this.store, attributes)
     } else {
-      this.id = await this.service.add(this.store, attributes)
+      this.id = await this.db.add(this.store, attributes)
     }
   }
 
   public remove() {
-    return this.service.remove(this.store, this.id)
+    return this.db.remove(this.store, this.id)
   }
 
   public get attributes() {
