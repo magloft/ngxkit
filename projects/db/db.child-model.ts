@@ -6,7 +6,7 @@ import { NgxDbPortal } from './db.portal'
 export class ChildModel {
   public readonly parent: Model
 
-  public static service(name: string) { return NgxDbPortal.services[name] }
+  public static service<T>(name: string): T { return NgxDbPortal.services[name] }
 
   public static deserialize(data: any, parent: Model) {
     const record = new this(data, parent)
@@ -29,5 +29,5 @@ export class ChildModel {
     return this.parent as T
   }
 
-  public service(name: string) { return NgxDbPortal.services[name] }
+  public service<T>(name: string): T { return NgxDbPortal.services[name] }
 }

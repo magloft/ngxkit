@@ -26,7 +26,7 @@ export class Model {
 
   public static get store() { return camelize(pluralize(this.name), true)}
   public static get db() { return NgxDbPortal.dbService }
-  public static service(name: string) { return NgxDbPortal.services[name] }
+  public static service<T>(name: string): T { return NgxDbPortal.services[name] }
 
   public static async findAll<T>(): Promise<T[]> {
     const results = await this.db.findAll<any>(this.store)
@@ -86,7 +86,7 @@ export class Model {
 
   public get store() { return this.Class.store }
   protected get db() { return NgxDbPortal.dbService }
-  public service(name: string) { return NgxDbPortal.services[name] }
+  public service<T>(name: string): T { return NgxDbPortal.services[name] }
 
   constructor(data: any = {}) {
     Object.assign(this, data)
