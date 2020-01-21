@@ -1,0 +1,3 @@
+# NgxDb
+
+Angular IndexedDB Service

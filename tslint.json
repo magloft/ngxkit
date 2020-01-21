@@ -6,7 +6,6 @@
     "semicolon": [true, "never"],
     "component-class-suffix": true,
     "contextual-lifecycle": true,
-    "no-unused-variable": true,
     "directive-class-suffix": true,
     "directive-selector": [true, "attribute", "ngx", "camelCase"],
     "component-selector": [true, "element", "ngx", "kebab-case"],
