@@ -17,7 +17,7 @@ export declare interface NgxPushviewResolveData {
 }
 
 export declare interface NgxPushviewResolve<T> {
-  resolve(NgxPush): Promise<T>
+  resolve(transition?: NgxPushviewTransition): Promise<T>
 }
 
 export class NgxPushviewResolveResult {

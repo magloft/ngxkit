@@ -39,7 +39,7 @@ export class NgxPushviewComponent implements OnInit {
     return this.stackConfigs.indexOf(this.activeStackConfig)
   }
 
-  private async slideToIndex(index: number) {
+  public async slideToIndex(index: number) {
     const { activeStackConfig, stackConfigs, activeStackIndex, container, label, itemWidth } = this
     if (index < 0 || index > stackConfigs.length - 1 || activeStackIndex === index) { return }
     const currentIndex = stackConfigs.indexOf(activeStackConfig)
