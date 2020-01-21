@@ -1,9 +1,23 @@
+import { Type } from '@angular/core'
+
+export interface NgxPushviewStackConfig {
+  id: string
+  label: string
+  component: Type<any>
+  resolve?: NgxPushviewResolveData
+}
+
+export interface NgxPushviewTransition {
+  from: NgxPushviewStackConfig
+  to: NgxPushviewStackConfig
+}
+
 export declare interface NgxPushviewResolveData {
   [name: string]: any
 }
 
 export declare interface NgxPushviewResolve<T> {
-  resolve(): Promise<T>
+  resolve(NgxPush): Promise<T>
 }
 
 export class NgxPushviewResolveResult {

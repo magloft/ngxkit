@@ -1,13 +1,6 @@
 import { animate, AnimationBuilder, AnimationMetadata, AnimationPlayer, style } from '@angular/animations'
-import { Component, ComponentFactory, ComponentFactoryResolver, ElementRef, Injector, Input, OnInit, Type, ViewChild, ViewContainerRef } from '@angular/core'
-import { NgxPushviewResolve, NgxPushviewResolveData, NgxPushviewResolveResult } from './pushview.resolve'
-
-export interface NgxPushviewStackConfig {
-  id: string
-  label: string
-  component: Type<any>
-  resolve?: NgxPushviewResolveData
-}
+import { Component, ComponentFactory, ComponentFactoryResolver, ElementRef, Injector, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core'
+import { NgxPushviewResolve, NgxPushviewResolveResult, NgxPushviewStackConfig, NgxPushviewTransition } from './pushview.resolve'
 
 @Component({
   selector: 'ngx-pushview',
@@ -100,8 +93,12 @@ export class NgxPushviewComponent implements OnInit {
     })
     let resolveError
     let newStackConfig
+    const transition: NgxPushviewTransition = {
+      from: this.activeStackConfig,
+      to: stackConfig
+    }
     await Promise.all(Object.entries(resolve).map(([key, resolver]) => {
-      return injector.get<NgxPushviewResolve<any>>(resolver).resolve().then((value) => { result.set(key, value) })
+      return injector.get<NgxPushviewResolve<any>>(resolver).resolve(transition).then((value) => { result.set(key, value) })
     })).catch((error) => { resolveError = error })
     if (resolveError) {
       result.set('error', resolveError)
