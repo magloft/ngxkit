@@ -1,11 +1,20 @@
 import { camelize, pluralize } from 'inflection'
 import 'reflect-metadata'
 import { NgxDbPortal } from './db.portal'
-import { DBMode, DbSchemaStoreAttributeOptions, getStoreAttributes, setStoreAttribute } from './db.schema'
+import { DBMode, DbSchemaStoreAttributeOptions, DbSchemaStoreCollectionOptions, getStoreAttributes, getStoreCollections, setStoreAttribute } from './db.schema'
 
 export function attribute(options: DbSchemaStoreAttributeOptions = {}) {
   return (target: any, key: string) => {
     const type = Reflect.getMetadata('design:type', target, key)
+    const BaseModel: typeof Model = target.constructor
+    setStoreAttribute(BaseModel.store, key, type, options)
+  }
+}
+
+export function collection(options: DbSchemaStoreCollectionOptions) {
+  return (target: any, key: string) => {
+    const type = Reflect.getMetadata('design:type', target, key)
+    if (type !== Array) { throw new Error('@collection properties require type Array') }
     const BaseModel: typeof Model = target.constructor
     setStoreAttribute(BaseModel.store, key, type, options)
   }
@@ -23,14 +32,18 @@ export class Model {
 
   constructor(data: any = {}) {
     Object.assign(this, data)
+    for (const { key, ModelType } of getStoreCollections(this.store)) {
+      const entries = this[key] || []
+      this[key] = entries.map((entry) => ModelType.deserialize(entry, this))
+    }
   }
 
-  public static async findAll() {
+  public static async findAll<T>(): Promise<T[]> {
     const results = await this.service.findAll<any>(this.store)
     return results.map((result) => new this(result))
   }
 
-  public static async findOne(index: string, value: any) {
+  public static async findOne<T>(index: string, value: any): Promise<T> {
     const result = await this.service.run(this.store, DBMode.readonly, (transaction) => {
       return transaction.objectStore(this.store).index(index).get(value)
     })
@@ -97,8 +110,10 @@ export class Model {
 
   public get attributes() {
     const attributes = getStoreAttributes(this.store)
-    return Object.keys(attributes).reduce((obj, key) => {
-      if (this[key] !== undefined) { obj[key] = this[key] }
+    return Object.entries(attributes).reduce((obj, [key, { ModelType }]) => {
+      if (this[key] !== undefined) {
+        obj[key] = ModelType != null ? this[key].map((record) => record.serialize()) : this[key]
+      }
       return obj
     }, {})
   }

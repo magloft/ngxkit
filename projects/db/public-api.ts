@@ -1,5 +1,6 @@
 export * from './db.service'
 export * from './db.module'
 export * from './db.model'
+export * from './db.child-model'
 export * from './db.portal'
 export * from './db.schema'

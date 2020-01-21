@@ -1,7 +1,7 @@
-import { attribute, Model } from 'projects/db/public-api'
+import { ChildModel } from 'projects/db/public-api'
 
-export class Article extends Model {
-  @attribute({ primary: true }) id?: number
-  @attribute({ required: true, unique: true }) title: string
-  @attribute() description: string
+export class Article extends ChildModel {
+  public id: number
+  public title: string
+  public description: string
 }

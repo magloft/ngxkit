@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { NgxDbService } from '../../../db/public-api'
+import { NgxDbService } from 'projects/db/public-api'
 import { Article } from './models/Article'
 import { Publication } from './models/Publication'
 
@@ -13,10 +13,11 @@ export class AppComponent implements OnInit {
 
   async ngOnInit() {
     await Publication.removeAll()
-    await Article.removeAll()
     const publication: Publication = await Publication.create({ title: 'Test Publication' })
-    const article: Article = await Article.create({ title: 'Hello World 1', description: 'Sample Description' })
-    publication.articleIds.add(article.id)
+    const article: Article = new Article({ title: 'Hello World 1', description: 'Sample Description' }, publication)
+    publication.articles.push(article)
     await publication.save()
+    const savedPublication = await Publication.findOne<Publication>('title', 'Test Publication')
+    await savedPublication.remove()
   }
 }

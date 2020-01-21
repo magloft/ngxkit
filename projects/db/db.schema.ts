@@ -1,4 +1,5 @@
 import { InjectionToken } from '@angular/core'
+import { ChildModel } from './db.child-model'
 import { Model } from './db.model'
 
 export type TransactionCallback = (transaction: IDBTransaction) => IDBRequest
@@ -19,6 +20,11 @@ export interface DbSchemaStoreAttribute {
   primary: boolean
   required: boolean
   multiEntry: boolean
+  ModelType?: typeof ChildModel
+}
+
+export interface DbSchemaStoreCollectionOptions extends DbSchemaStoreAttributeOptions {
+  ModelType: typeof ChildModel
 }
 
 export interface DbSchemaStoreAttributeOptions {
@@ -51,4 +57,8 @@ export function setStoreAttribute(store: string, key: string, type: typeof Numbe
 
 export function getStoreAttributes(store: string) {
   return schema.stores[store].attributes
+}
+
+export function getStoreCollections(store: string) {
+  return Object.values(schema.stores[store].attributes).filter((attribute) => attribute.ModelType != null)
 }
