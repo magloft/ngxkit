@@ -5,6 +5,7 @@ export interface NgxPushviewStackConfig {
   label: string
   component: Type<any>
   resolve?: NgxPushviewResolveData
+  data?: NgxPushviewResolveData
 }
 
 export interface NgxPushviewTransition {

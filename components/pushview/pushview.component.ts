@@ -85,7 +85,7 @@ export class NgxPushviewComponent implements OnInit {
   }
 
   private async renderStack(stackConfig: NgxPushviewStackConfig) {
-    const { resolve = {} } = stackConfig
+    const { resolve = {}, data = {} } = stackConfig
     const result = new NgxPushviewResolveResult()
     const injector: Injector = Injector.create({
       providers: [{ provide: NgxPushviewComponent, useValue: this }, { provide: NgxPushviewResolveResult, useValue: result }],
@@ -106,6 +106,10 @@ export class NgxPushviewComponent implements OnInit {
     } else {
       newStackConfig = stackConfig
     }
+
+    Object.entries(data).forEach(([key,value]) => {
+      result.set(key, value)
+    })
     const factory: ComponentFactory<Component> = this.resolver.resolveComponentFactory(newStackConfig.component)
     this.stackContainer.clear()
     this.stackContainer.createComponent(factory, 0, injector)
