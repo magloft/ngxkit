@@ -1,5 +1,5 @@
 import { animate, AnimationBuilder, AnimationMetadata, AnimationPlayer, style } from '@angular/animations'
-import { Component, ComponentFactory, ComponentFactoryResolver, ElementRef, Injector, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core'
+import { Component, ComponentFactory, ComponentFactoryResolver, ElementRef, EventEmitter, Injector, Input, OnInit, Output, ViewChild, ViewContainerRef } from '@angular/core'
 import { NgxPushviewResolve, NgxPushviewResolveResult, NgxPushviewStackConfig, NgxPushviewTransition } from './pushview.resolve'
 
 @Component({
@@ -10,6 +10,8 @@ import { NgxPushviewResolve, NgxPushviewResolveResult, NgxPushviewStackConfig, N
 export class NgxPushviewComponent implements OnInit {
   @Input() activePaneId: string
   @Input() stackConfigs: NgxPushviewStackConfig[]
+  @Input() showCloseButton = false
+  @Output() closeClicked = new EventEmitter<boolean>()
 
   @ViewChild('container', { static: true }) private container: ElementRef
   @ViewChild('label', { static: true }) private label: ElementRef
@@ -33,6 +35,10 @@ export class NgxPushviewComponent implements OnInit {
 
   public prev() {
     return this.slideToIndex(this.activeStackIndex - 1)
+  }
+
+  public close() {
+    this.closeClicked.emit(true)
   }
 
   private get activeStackIndex() {
@@ -107,7 +113,7 @@ export class NgxPushviewComponent implements OnInit {
       newStackConfig = stackConfig
     }
 
-    Object.entries(data).forEach(([key,value]) => {
+    Object.entries(data).forEach(([key, value]) => {
       result.set(key, value)
     })
     const factory: ComponentFactory<Component> = this.resolver.resolveComponentFactory(newStackConfig.component)

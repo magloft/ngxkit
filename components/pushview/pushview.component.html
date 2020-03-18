@@ -3,7 +3,9 @@
     <mat-icon *ngIf="!loading && stackConfigs.indexOf(activeStackConfig) > 0" (click)="prev()">arrow_back</mat-icon>
   </div>
   <div class="header-label" #label>{{ activeStackConfig.label }}</div>
-  <div class="header-side"></div>
+  <div class="header-side">
+    <mat-icon (click)="close()">close</mat-icon>
+  </div>
   <mat-spinner *ngIf="loading" diameter="24"></mat-spinner>
 </header>
 <div #container class="container">
