@@ -1,6 +1,6 @@
 {
   "name": "ngx-pushview",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "peerDependencies": {
     "@angular/animations": "~8.2.14",
     "@angular/common": "^8.2.14",
