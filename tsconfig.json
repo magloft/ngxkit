@@ -13,6 +13,7 @@
     "importHelpers": true,
     "target": "ES5",
     "noUnusedLocals": false,
+    "preserveSymlinks": true,
     "typeRoots": [
       "node_modules/@types"
     ],

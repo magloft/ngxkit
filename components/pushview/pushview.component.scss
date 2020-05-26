@@ -1,11 +1,7 @@
 :host {
-  display: block;
+  display: flex;
   overflow: hidden;
-}
-
-.container {
-  height: 100%;
-  position: relative;
+  flex-direction: column;
 }
 
 header {
@@ -48,4 +44,9 @@ header {
       color: #444444;
     }
   }
+}
+
+.container {
+  position: relative;
+  flex: 1;
 }
