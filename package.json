@@ -4,10 +4,15 @@
   "scripts": {
     "ng": "ng",
     "serve": "ng serve",
-    "build": "ng build",
     "lint": "ng lint",
     "link:pushview": "cd dist/ngx-pushview; yarn link",
-    "release": "standard-version"
+    "release": "standard-version",
+    "postinstall": "ngcc",
+    "build:pushview": "ng build --prod ngx-pushview",
+    "build:db": "ng build --prod ngx-db",
+    "build": "yarn build:pushview; yarn build:db",
+    "publish:pushview": "yarn build:pushview; cd dist/ngx-pushview; yarn publish",
+    "publish:db": "yarn build:db; cd dist/ngx-db; yarn publish"
   },
   "private": true,
   "dependencies": {
