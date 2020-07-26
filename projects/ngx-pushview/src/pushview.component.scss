@@ -9,13 +9,18 @@ header {
   display: flex;
   flex-direction: row;
   height: 64px;
-  background-color: #EDEDED;
+  background-color: #ededed;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1px solid #e0e0e0;
 
   .header-side {
-    width: 48px;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 
   .header-label {
@@ -32,14 +37,16 @@ header {
     margin-top: -12px;
   }
 
-  mat-icon {
-    width: 48px;
-    height: 64px;
-    text-align: center;
-    line-height: 64px;
-    cursor: pointer;
-    color: #AAAAAA;
+  .icon {
+    width: 32px;
+    height: 32px;
+    transition: color 250ms;
+    color: #888888;
+  }
 
+  .icon-close,
+  .icon-prev {
+    cursor: pointer;
     &:hover {
       color: #444444;
     }

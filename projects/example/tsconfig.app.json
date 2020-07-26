@@ -1,8 +1,15 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/app",
-    "types": []
+    "types": [
+      "node"
+    ],
+    "lib": [
+      "es2018",
+      "esnext.asynciterable",
+      "dom"
+    ]
   },
   "files": [
     "src/main.ts",

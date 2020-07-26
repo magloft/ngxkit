@@ -21,7 +21,7 @@ export class NgxPushviewComponent implements OnInit {
   public loading = false
   public activeStackConfig: NgxPushviewStackConfig
 
-  constructor(private builder: AnimationBuilder, private elementRef: ElementRef, private injector: Injector, private resolver: ComponentFactoryResolver) {}
+  constructor(private builder: AnimationBuilder, private elementRef: ElementRef, private injector: Injector, private resolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
     this.itemWidth = this.elementRef.nativeElement.offsetWidth
@@ -72,11 +72,11 @@ export class NgxPushviewComponent implements OnInit {
     await Promise.all([
       this.playAnimation([
         style({ transform: `translateX(${-direction * itemWidth}px)`, opacity: 0 }),
-        animate('150ms ease-out', style({ transform: `translateX(0px)`, opacity: 1 })),
+        animate('150ms ease-out', style({ transform: 'translateX(0px)', opacity: 1 })),
       ], container.nativeElement),
       this.playAnimation([
         style({ transform: `translateY(${-direction * 16}px)`, opacity: 0 }),
-        animate('150ms ease-out', style({ transform: `translateY(0px)`, opacity: 1 })),
+        animate('150ms ease-out', style({ transform: 'translateY(0px)', opacity: 1 })),
       ], label.nativeElement)
     ])
   }

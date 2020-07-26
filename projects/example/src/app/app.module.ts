@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
-import { NgxDbModule } from 'projects/db/public-api'
+import { NgxDbModule } from 'ngx-db'
+import { NgxPushviewModule } from 'ngx-pushview'
 import { AppComponent } from './app.component'
 import { Publication } from './models/Publication'
 
@@ -10,11 +11,8 @@ import { Publication } from './models/Publication'
   ],
   imports: [
     BrowserModule,
-    NgxDbModule.forRoot({
-      name: 'example',
-      version: 1,
-      models: [Publication]
-    })
+    NgxPushviewModule,
+    NgxDbModule.forRoot({ name: 'example', version: 1, models: [Publication] })
   ],
   providers: [],
   bootstrap: [AppComponent]

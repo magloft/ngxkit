@@ -1,4 +1,4 @@
-import { attribute, collection, Model } from 'projects/db/public-api'
+import { attribute, collection, Model } from 'ngx-db'
 import { Article } from './Article'
 
 export class Publication extends Model {

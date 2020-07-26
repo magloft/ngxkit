@@ -1,47 +1,26 @@
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "declaration": false,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "ES5",
-    "noUnusedLocals": false,
-    "preserveSymlinks": true,
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2018",
-      "dom"
-    ],
-    "paths": {
-      "pushview": [
-        "dist/pushview"
-      ],
-      "pushview/*": [
-        "dist/pushview/*"
-      ],
-      "db": [
-        "dist/db"
-      ],
-      "db/*": [
-        "dist/db/*"
+  "files": [],
+  "references": [
+    {
+      "path": "./projects/ngx-pushview/tsconfig.lib.json",
+      "files": [
+        "projects/ngx-pushview/src/**/*.ts",
+        "projects/ngx-pushview/src/**/*.d.ts"
+      ]
+    },
+    {
+      "path": "./projects/ngx-db/tsconfig.lib.json",
+      "files": [
+        "projects/ngx-db/src/**/*.ts",
+        "projects/ngx-db/src/**/*.d.ts"
+      ]
+    },
+    {
+      "path": "./projects/example/tsconfig.app.json",
+      "files": [
+        "projects/example/src/**/*.ts",
+        "projects/example/src/**/*.d.ts"
       ]
     }
-  },
-  "angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true,
-    "skipTemplateCodegen": true,
-    "strictMetadataEmit": true,
-    "enableResourceInlining": true,
-    "enableIvy": false
-  }
+  ]
 }

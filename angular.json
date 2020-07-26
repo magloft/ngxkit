@@ -3,24 +3,30 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pushview": {
+    "ngx-pushview": {
       "projectType": "library",
-      "root": "components/pushview",
-      "sourceRoot": "components/pushview",
+      "root": "projects/ngx-pushview",
+      "sourceRoot": "projects/ngx-pushview",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "components/pushview/tsconfig.lib.json",
-            "project": "components/pushview/ng-package.json"
+            "tsConfig": "projects/ngx-pushview/tsconfig.lib.json",
+            "project": "projects/ngx-pushview/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-pushview/tsconfig.lib.prod.json"
+            }
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
+            "eslintConfig": ".eslintrc.json",
             "tsConfig": [
-              "components/pushview/tsconfig.lib.json"
+              "projects/ngx-pushview/tsconfig.lib.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -29,24 +35,30 @@
         }
       }
     },
-    "db": {
+    "ngx-db": {
       "projectType": "library",
-      "root": "projects/db",
-      "sourceRoot": "projects/db",
+      "root": "projects/ngx-db",
+      "sourceRoot": "projects/ngx-db",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/db/tsconfig.lib.json",
-            "project": "projects/db/ng-package.json"
+            "tsConfig": "projects/ngx-db/tsconfig.lib.json",
+            "project": "projects/ngx-db/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-db/tsconfig.lib.prod.json"
+            }
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
+            "eslintConfig": ".eslintrc.json",
             "tsConfig": [
-              "projects/db/tsconfig.lib.json"
+              "projects/ngx-db/tsconfig.lib.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -93,8 +105,9 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
+            "eslintConfig": ".eslintrc.json",
             "tsConfig": [
               "projects/example/tsconfig.app.json"
             ],
@@ -104,6 +117,7 @@
           }
         }
       }
-    }},
-  "defaultProject": "pushview"
+    }
+  },
+  "defaultProject": "ngx-pushview"
 }

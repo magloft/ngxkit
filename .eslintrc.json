@@ -1,0 +1,91 @@
+{
+  "extends": [
+    "plugin:@angular-eslint/recommended"
+  ],
+  "rules": {
+    "max-len": [
+      "error",
+      250
+    ],
+    "no-console": [
+      "error",
+      {
+        "allow": [
+          "error",
+          "info"
+        ]
+      }
+    ],
+    "no-restricted-syntax": "off",
+    "@angular-eslint/directive-selector": [
+      "error",
+      {
+        "type": "attribute",
+        "prefix": "ngx",
+        "style": "camelCase"
+      }
+    ],
+    "@angular-eslint/component-selector": [
+      "error",
+      {
+        "type": "element",
+        "prefix": [
+          "ngx",
+          "app"
+        ],
+        "style": "kebab-case"
+      }
+    ],
+    "@angular-eslint/component-class-suffix": [
+      "error",
+      {
+        "suffixes": [
+          "Component",
+          "Page"
+        ]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "projects/ngx-db/src/**/*.ts",
+        "projects/ngx-db/src/**/*.d.ts"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": "./projects/ngx-db/tsconfig.lib.json",
+        "ecmaVersion": 2020,
+        "sourceType": "module"
+      }
+    },
+    {
+      "files": [
+        "projects/ngx-pushview/src/**/*.ts",
+        "projects/ngx-pushview/src/**/*.d.ts"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": "./projects/ngx-pushview/tsconfig.lib.json",
+        "ecmaVersion": 2020,
+        "sourceType": "module"
+      }
+    },
+    {
+      "files": [
+        "projects/example/src/**/*.ts",
+        "projects/example/src/**/*.d.ts"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": "./projects/example/tsconfig.app.json",
+        "ecmaVersion": 2020,
+        "sourceType": "module"
+      },
+      "plugins": [
+        "@angular-eslint/template"
+      ],
+      "processor": "@angular-eslint/template/extract-inline-html"
+    }
+  ]
+}

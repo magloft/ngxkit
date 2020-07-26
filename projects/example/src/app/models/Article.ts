@@ -1,4 +1,4 @@
-import { ChildModel } from 'projects/db/public-api'
+import { ChildModel } from 'ngx-db'
 
 export class Article extends ChildModel {
   public id: number
