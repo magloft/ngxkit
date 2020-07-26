@@ -1,12 +1,13 @@
 {
   "name": "ngxkit",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "scripts": {
     "ng": "ng",
     "serve": "ng serve",
     "build": "ng build",
     "lint": "ng lint",
-    "link:pushview": "cd dist/ngx-pushview; yarn link"
+    "link:pushview": "cd dist/ngx-pushview; yarn link",
+    "release": "standard-version"
   },
   "private": true,
   "dependencies": {
@@ -49,8 +50,14 @@
   },
   "husky": {
     "hooks": {
-      "post-install": "echo 'works nice'",
       "pre-commit": "yarn lint"
     }
+  },
+  "standard-version": {
+    "packageFiles": [
+      "package.json",
+      "projects/ngx-db/package.json",
+      "projects/ngx-pushview/package.json"
+    ]
   }
 }
