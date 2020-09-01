@@ -25,6 +25,10 @@
       "ngx-db": [
         "dist/ngx-db/ngx-db",
         "dist/ngx-db"
+      ],
+      "ngx-push": [
+        "dist/ngx-push/ngx-push",
+        "dist/ngx-push"
       ]
     }
   },

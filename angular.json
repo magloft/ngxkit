@@ -67,6 +67,38 @@
         }
       }
     },
+    "ngx-push": {
+      "projectType": "library",
+      "root": "projects/ngx-push",
+      "sourceRoot": "projects/ngx-push",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-push/tsconfig.lib.json",
+            "project": "projects/ngx-push/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-push/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "eslintConfig": ".eslintrc.json",
+            "tsConfig": [
+              "projects/ngx-push/tsconfig.lib.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
     "example": {
       "projectType": "application",
       "schematics": {},
