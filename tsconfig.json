@@ -23,14 +23,6 @@
       ]
     },
     {
-      "path": "./projects/ngx-push/tsconfig.worker.json",
-      "files": [
-        "projects/ngx-push/worker/main.ts",
-        "projects/ngx-push/worker/src/**/*.ts",
-        "projects/ngx-push/worker/src/**/*.d.ts"
-      ]
-    },
-    {
       "path": "./projects/example/tsconfig.app.json",
       "files": [
         "projects/example/src/**/*.ts",

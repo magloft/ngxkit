@@ -78,25 +78,6 @@
     },
     {
       "files": [
-        "projects/ngx-push/worker/main.ts",
-        "projects/ngx-push/worker/src/**/*.ts",
-        "projects/ngx-push/worker/src/**/*.d.ts"
-      ],
-      "parser": "@typescript-eslint/parser",
-      "parserOptions": {
-        "project": "./projects/ngx-push/tsconfig.worker.json",
-        "ecmaVersion": 2020,
-        "sourceType": "module"
-      }
-    },
-    {
-      "files": [
-        "projects/ngx-push/rollup.config.js"
-      ],
-      "parser": "esprima"
-    },
-    {
-      "files": [
         "projects/ngx-pushview/src/**/*.ts",
         "projects/ngx-pushview/src/**/*.d.ts"
       ],
