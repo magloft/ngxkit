@@ -1,10 +1,10 @@
 <h2>NgxAnime</h2>
 <div class="padding">Angular SVG Animation Library</div>
-<ngx-anime [timeline]="{ easing: 'easeInOutQuad', duration: 500 }">
+<ngx-anime [timeline]="{ easing: 'easeInOutSine', duration: 350 }">
   <svg viewBox="0 0 395 264">
     <g id="module-card" clip-path="url(#clip0)">
       <rect width="395" height="264" fill="url(#paint0_linear)" />
-      <g id="cloud_light_right" [ngxAnimate]="{ translateX: [-50, 0] }">
+      <g id="cloud_light_right" [ngxAnimate]="{ translateX: [-30, 0] }">
         <g id="cloud" filter="url(#filter0_i)">
           <path d="M292 33C286.504 33 281.957 36.3907 281.5 41H302.5C302.05 36.3846 297.501 33 292 33Z" fill="url(#paint1_radial)" />
           <path d="M318.5 22C307 22 298.5 31.335 298.5 41H338.5C338.5 32 328 22 318.5 22Z" fill="url(#paint2_radial)" />
@@ -14,11 +14,11 @@
           <path d="M353.921 172C347.263 172 342.342 177.404 342.342 183H365.5C365.5 177.789 359.421 172 353.921 172Z" fill="url(#paint4_radial)" />
         </g>
       </g>
-      <g id="cloud_dark_right" [ngxAnimate]="{ translateX: [0, -25] }">
+      <g id="cloud_dark_right" [ngxAnimate]="{ translateX: [0, -10] }">
         <path id="cloud_3" d="M360.519 51.4515C363.925 41.3029 373.944 33 386.632 33C399.632 33 414 46.6842 414 59L336 59C336.625 52.6925 342.848 48.0526 350.368 48.0526C354.318 48.0526 357.908 49.3275 360.519 51.4515Z" fill="black" fill-opacity="0.05" />
         <path id="cloud_4" d="M189.418 261.484C191.907 254.068 199.229 248 208.5 248C218 248 228.5 258 228.5 267L171.5 267C171.957 262.391 176.504 259 182 259C184.886 259 187.51 259.932 189.418 261.484Z" fill="black" fill-opacity="0.05" />
       </g>
-      <g id="cloud_light_left" [ngxAnimate]="{ translateX: [50, 0], translateY: [15, 0] }">
+      <g id="cloud_light_left" [ngxAnimate]="{ translateX: [0, 20], translateY: [40, 40] }">
         <g id="cloud_5" filter="url(#filter2_i)">
           <path d="M40.5789 88.3684C37.3972 88.3684 34.7644 90.3315 34.5 93H46.6579C46.3976 90.328 43.7636 88.3684 40.5789 88.3684Z" fill="url(#paint5_radial)" />
           <path d="M55.9211 82C49.2632 82 44.3421 87.4045 44.3421 93H67.5C67.5 87.7895 61.4211 82 55.9211 82Z" fill="url(#paint6_radial)" />
@@ -28,11 +28,11 @@
           <path d="M72.9211 180C66.2632 180 61.3421 185.404 61.3421 191H84.5C84.5 185.789 78.4211 180 72.9211 180Z" fill="url(#paint8_radial)" />
         </g>
       </g>
-      <g id="cloud_dark_left" [ngxAnimate]="{ translateX: [25, 0] }">
+      <g id="cloud_dark_left" [ngxAnimate]="{ translateX: [25, 15] }">
         <path id="cloud_7" d="M-20.8545 151.645C-18.8891 145.79 -13.109 141 -5.78947 141C1.71053 141 10 148.895 10 156L-35 156C-34.6395 152.361 -31.0492 149.684 -26.7105 149.684C-24.4322 149.684 -22.3605 150.42 -20.8545 151.645Z" fill="black" fill-opacity="0.05" />
         <path id="cloud_8" d="M49.9176 27.4838C52.4071 20.0675 59.7286 14 69 14C78.5 14 89 24 89 33L32 33C32.4567 28.3907 37.0043 25 42.5 25C45.3859 25 48.01 25.9316 49.9176 27.4838Z" fill="black" fill-opacity="0.05" />
       </g>
-      <g id="browser" [ngxAnimate]="{ translateY: [0, 0], rotateZ: [0, -5], scale: [0.8, 1] }">
+      <g id="browser" [ngxAnimate]="{ translateY: [0, 6], rotateZ: [0, -5], scale: [1, 1.35] }">
         <g id="browser_2">
           <rect id="frame" x="77" y="54" width="241" height="146" rx="5" fill="white" />
           <circle id="dot" cx="91.5" cy="61.5" r="2.5" fill="#F6C5D0" />
@@ -48,7 +48,7 @@
             </g>
           </g>
         </g>
-        <g id="video-widget" filter="url(#filter6_d)" [ngxAnimate]="{ translateY: [0, -10], scale: [1, 1.1], rotateZ: [0, 2], delay: 400 }">
+        <g id="video-widget" filter="url(#filter6_d)" [ngxAnimate]="{ translateY: [0, -10], scale: [1, 1.1], rotateZ: [0, 6], delay: 200 }">
           <path d="M176 90C176 88.8954 176.895 88 178 88H222C223.105 88 224 88.8954 224 90V134C224 135.105 223.105 136 222 136H178C176.895 136 176 135.105 176 134V90Z" fill="#E7AB52" />
           <rect id="Rectangle 10" x="176" y="88" width="24" height="48" fill="black" fill-opacity="0.05" />
           <g id="icon" filter="url(#filter7_d)">
@@ -131,7 +131,7 @@
           <path d="M178 145H222V143H178V145ZM223 146V190H225V146H223ZM222 191H178V193H222V191ZM177 190V146H175V190H177ZM178 191C177.448 191 177 190.552 177 190H175C175 191.657 176.343 193 178 193V191ZM223 190C223 190.552 222.552 191 222 191V193C223.657 193 225 191.657 225 190H223ZM222 145C222.552 145 223 145.448 223 146H225C225 144.343 223.657 143 222 143V145ZM178 143C176.343 143 175 144.343 175 146H177C177 145.448 177.448 145 178 145V143Z" fill="white" />
         </g>
       </g>
-      <g id="dialog_right" [ngxAnimate]="{ translateY: [15, 0], opacity: [0, 1], delay: 100 }">
+      <g id="dialog_right" [ngxAnimate]="{ translateY: [15, 0], opacity: [0, 1], delay: 50 }">
         <g id="dialog" filter="url(#filter12_dd)">
           <path d="M268 104C268 101.791 269.791 100 272 100H365C367.209 100 369 101.791 369 104V155C369 157.209 367.209 159 365 159H272C269.791 159 268 157.209 268 155V104Z" fill="white" />
           <rect id="navbar_2" x="268" y="100" width="101" height="7" fill="#E7AB52" />
@@ -160,7 +160,7 @@
         <rect id="image" x="274" y="113" width="38" height="38" fill="#F2CD4A" />
         <rect id="Rectangle 10_5" x="274" y="113" width="19" height="38" fill="black" fill-opacity="0.05" />
       </g>
-      <g id="dialog_left" [ngxAnimate]="{ translateY: [15, 0], opacity: [0, 1], delay: 200 }">
+      <g id="dialog_left" [ngxAnimate]="{ translateY: [15, 0], opacity: [0, 1], delay: 100 }">
         <g id="dialog_2" filter="url(#filter13_dd)">
           <path d="M63 90C63 87.7909 64.7909 86 67 86H138C140.209 86 142 87.7909 142 90V136C142 138.209 140.209 140 138 140H67C64.7909 140 63 138.209 63 136V90Z" fill="white" />
           <path d="M67 88H138V84H67V88ZM140 90V136H144V90H140ZM138 138H67V142H138V138ZM65 136V90H61V136H65ZM67 138C65.8954 138 65 137.105 65 136H61C61 139.314 63.6863 142 67 142V138ZM140 136C140 137.105 139.105 138 138 138V142C141.314 142 144 139.314 144 136H140ZM138 88C139.105 88 140 88.8954 140 90H144C144 86.6863 141.314 84 138 84V88ZM67 84C63.6863 84 61 86.6863 61 90H65C65 88.8954 65.8954 88 67 88V84Z" fill="white" />
@@ -170,7 +170,7 @@
         <rect id="bar_3" x="107" y="94" width="6" height="38" rx="3" fill="url(#paint11_linear)" />
         <rect id="bar_4" x="122" y="94" width="6" height="38" rx="3" fill="url(#paint12_linear)" />
       </g>
-      <g id="dialog_bottom" [ngxAnimate]="{ translateY: [15, 0], opacity: [0, 1], delay: 300 }">
+      <g id="dialog_bottom" [ngxAnimate]="{ translateY: [15, 0], opacity: [0, 1], delay: 150 }">
         <g id="dialog_3" filter="url(#filter14_dd)">
           <path d="M101 159C101 154.582 104.582 151 109 151H185C189.418 151 193 154.582 193 159V215C193 219.418 189.418 223 185 223H109C104.582 223 101 219.418 101 215V159Z" fill="#F2994A" />
           <path d="M109 153H185V149H109V153ZM191 159V215H195V159H191ZM185 221H109V225H185V221ZM103 215V159H99V215H103ZM109 221C105.686 221 103 218.314 103 215H99C99 220.523 103.477 225 109 225V221ZM191 215C191 218.314 188.314 221 185 221V225C190.523 225 195 220.523 195 215H191ZM185 153C188.314 153 191 155.686 191 159H195C195 153.477 190.523 149 185 149V153ZM109 149C103.477 149 99 153.477 99 159H103C103 155.686 105.686 153 109 153V149Z" fill="white" />
