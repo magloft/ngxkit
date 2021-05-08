@@ -2,14 +2,9 @@
   "npm.packageManager": "yarn",
   "eslint.packageManager": "yarn",
   "eslint.options": {
-    "extensions": [
-      ".ts",
-      ".html"
-    ]
+    "extensions": [".ts", ".html"]
   },
-  "editor.rulers": [
-    160
-  ],
+  "editor.rulers": [160],
   "html.format.wrapLineLength": 160,
   "html.format.extraLiners": "",
   "html.format.indentInnerHtml": true,
@@ -31,6 +26,5 @@
   "typescript.tsdk": "./node_modules/typescript/lib",
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "typescript.preferences.quoteStyle": "single",
-  "eslint.enable": true,
-  "yaml.format.enable": false
+  "json.format.enable": false
 }

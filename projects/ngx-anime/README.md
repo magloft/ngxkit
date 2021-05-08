@@ -1,0 +1,3 @@
+# NgxAnime
+
+Angular SVG Animations

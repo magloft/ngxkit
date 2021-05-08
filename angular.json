@@ -3,35 +3,20 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-pushview": {
+    "ngx-anime": {
       "projectType": "library",
-      "root": "projects/ngx-pushview",
-      "sourceRoot": "projects/ngx-pushview",
+      "root": "projects/ngx-anime",
+      "sourceRoot": "projects/ngx-anime",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/ngx-pushview/tsconfig.lib.json",
-            "project": "projects/ngx-pushview/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/ngx-pushview/tsconfig.lib.prod.json"
-            }
-          }
+          "options": { "tsConfig": "projects/ngx-anime/tsconfig.lib.json", "project": "projects/ngx-anime/ng-package.json" },
+          "configurations": { "production": { "tsConfig": "projects/ngx-anime/tsconfig.lib.prod.json" } }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "eslintConfig": ".eslintrc.json",
-            "tsConfig": [
-              "projects/ngx-pushview/tsconfig.lib.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
+          "options": { "eslintConfig": ".eslintrc.json", "tsConfig": ["projects/ngx-anime/tsconfig.lib.json"], "exclude": ["**/node_modules/**"] }
         }
       }
     },
@@ -43,27 +28,12 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/ngx-db/tsconfig.lib.json",
-            "project": "projects/ngx-db/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/ngx-db/tsconfig.lib.prod.json"
-            }
-          }
+          "options": { "tsConfig": "projects/ngx-db/tsconfig.lib.json", "project": "projects/ngx-db/ng-package.json" },
+          "configurations": { "production": { "tsConfig": "projects/ngx-db/tsconfig.lib.prod.json" } }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "eslintConfig": ".eslintrc.json",
-            "tsConfig": [
-              "projects/ngx-db/tsconfig.lib.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
+          "options": { "eslintConfig": ".eslintrc.json", "tsConfig": ["projects/ngx-db/tsconfig.lib.json"], "exclude": ["**/node_modules/**"] }
         }
       }
     },
@@ -75,27 +45,29 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/ngx-push/tsconfig.lib.json",
-            "project": "projects/ngx-push/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/ngx-push/tsconfig.lib.prod.json"
-            }
-          }
+          "options": { "tsConfig": "projects/ngx-push/tsconfig.lib.json", "project": "projects/ngx-push/ng-package.json" },
+          "configurations": { "production": { "tsConfig": "projects/ngx-push/tsconfig.lib.prod.json" } }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "eslintConfig": ".eslintrc.json",
-            "tsConfig": [
-              "projects/ngx-push/tsconfig.lib.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
+          "options": { "eslintConfig": ".eslintrc.json", "tsConfig": ["projects/ngx-push/tsconfig.lib.json"], "exclude": ["**/node_modules/**"] }
+        }
+      }
+    },
+    "ngx-pushview": {
+      "projectType": "library",
+      "root": "projects/ngx-pushview",
+      "sourceRoot": "projects/ngx-pushview",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": { "tsConfig": "projects/ngx-pushview/tsconfig.lib.json", "project": "projects/ngx-pushview/ng-package.json" },
+          "configurations": { "production": { "tsConfig": "projects/ngx-pushview/tsconfig.lib.prod.json" } }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": { "eslintConfig": ".eslintrc.json", "tsConfig": ["projects/ngx-pushview/tsconfig.lib.json"], "exclude": ["**/node_modules/**"] }
         }
       }
     },
@@ -115,41 +87,22 @@
             "polyfills": "projects/example/src/polyfills.ts",
             "tsConfig": "projects/example/tsconfig.app.json",
             "aot": false,
-            "assets": [
-              "projects/example/src/favicon.ico",
-              "projects/example/src/assets"
-            ],
-            "styles": [
-              "projects/example/src/styles.css"
-            ],
+            "assets": ["projects/example/src/favicon.ico", "projects/example/src/assets"],
+            "styles": ["projects/example/src/styles.css"],
             "scripts": []
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "example:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "example:build:production"
-            }
-          }
+          "options": { "browserTarget": "example:build" },
+          "configurations": { "production": { "browserTarget": "example:build:production" } }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "eslintConfig": ".eslintrc.json",
-            "tsConfig": [
-              "projects/example/tsconfig.app.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
+          "options": { "eslintConfig": ".eslintrc.json", "tsConfig": ["projects/example/tsconfig.app.json"], "exclude": ["**/node_modules/**"] }
         }
       }
     }
   },
-  "defaultProject": "ngx-pushview"
+  "defaultProject": "ngx-anime"
 }

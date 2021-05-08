@@ -1,33 +1,19 @@
 {
   "files": [],
-  "references": [
-    {
-      "path": "./projects/ngx-pushview/tsconfig.lib.json",
-      "files": [
-        "projects/ngx-pushview/src/**/*.ts",
-        "projects/ngx-pushview/src/**/*.d.ts"
-      ]
-    },
-    {
-      "path": "./projects/ngx-db/tsconfig.lib.json",
-      "files": [
-        "projects/ngx-db/src/**/*.ts",
-        "projects/ngx-db/src/**/*.d.ts"
-      ]
-    },
-    {
-      "path": "./projects/ngx-push/tsconfig.lib.json",
-      "files": [
-        "projects/ngx-push/src/**/*.ts",
-        "projects/ngx-push/src/**/*.d.ts"
-      ]
-    },
-    {
-      "path": "./projects/example/tsconfig.app.json",
-      "files": [
-        "projects/example/src/**/*.ts",
-        "projects/example/src/**/*.d.ts"
-      ]
-    }
-  ]
+  "references": [{
+    "path": "./projects/ngx-anime/tsconfig.lib.json",
+    "files": ["projects/ngx-anime/src/**/*.ts", "projects/ngx-anime/src/**/*.d.ts"]
+  }, {
+    "path": "./projects/ngx-db/tsconfig.lib.json",
+    "files": ["projects/ngx-db/src/**/*.ts", "projects/ngx-db/src/**/*.d.ts"]
+  }, {
+    "path": "./projects/ngx-push/tsconfig.lib.json",
+    "files": ["projects/ngx-push/src/**/*.ts", "projects/ngx-push/src/**/*.d.ts"]
+  }, {
+    "path": "./projects/ngx-pushview/tsconfig.lib.json",
+    "files": ["projects/ngx-pushview/src/**/*.ts", "projects/ngx-pushview/src/**/*.d.ts"]
+  }, {
+    "path": "./projects/example/tsconfig.app.json",
+    "files": ["projects/example/src/**/*.ts", "projects/example/src/**/*.d.ts"]
+  }]
 }
