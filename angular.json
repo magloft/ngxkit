@@ -10,7 +10,7 @@
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": { "tsConfig": "projects/ngx-anime/tsconfig.lib.json", "project": "projects/ngx-anime/ng-package.json" },
           "configurations": { "production": { "tsConfig": "projects/ngx-anime/tsconfig.lib.prod.json" } }
         },
@@ -27,7 +27,7 @@
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": { "tsConfig": "projects/ngx-db/tsconfig.lib.json", "project": "projects/ngx-db/ng-package.json" },
           "configurations": { "production": { "tsConfig": "projects/ngx-db/tsconfig.lib.prod.json" } }
         },
@@ -44,7 +44,7 @@
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": { "tsConfig": "projects/ngx-push/tsconfig.lib.json", "project": "projects/ngx-push/ng-package.json" },
           "configurations": { "production": { "tsConfig": "projects/ngx-push/tsconfig.lib.prod.json" } }
         },
@@ -61,7 +61,7 @@
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": { "tsConfig": "projects/ngx-pushview/tsconfig.lib.json", "project": "projects/ngx-pushview/ng-package.json" },
           "configurations": { "production": { "tsConfig": "projects/ngx-pushview/tsconfig.lib.prod.json" } }
         },
