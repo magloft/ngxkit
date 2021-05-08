@@ -1,6 +1,6 @@
 {
   "name": "ngx-anime",
-  "version": "11.2.13",
+  "version": "11.2.14",
   "peerDependencies": {
     "animejs": "~3.2.1",
     "@angular/common": "~11.2.12",
