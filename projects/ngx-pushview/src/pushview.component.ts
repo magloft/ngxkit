@@ -82,7 +82,7 @@ export class NgxPushviewComponent implements OnInit {
   }
 
   private playAnimation(data: AnimationMetadata | AnimationMetadata[], element: HTMLElement) {
-    return new Promise((resolve) => {
+    return new Promise<void>((resolve) => {
       const animation = this.builder.build(data)
       const player: AnimationPlayer = animation.create(element)
       player.onDone(resolve)
