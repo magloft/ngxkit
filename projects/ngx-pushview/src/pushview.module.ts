@@ -1,11 +1,11 @@
+import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
-import { BrowserModule } from '@angular/platform-browser'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 import { NgxPushviewComponent } from './pushview.component'
 
 @NgModule({
   declarations: [NgxPushviewComponent],
-  imports: [BrowserModule, BrowserAnimationsModule],
+  imports: [CommonModule, NoopAnimationsModule],
   exports: [NgxPushviewComponent]
 })
-export class NgxPushviewModule {}
+export class NgxPushviewModule { }

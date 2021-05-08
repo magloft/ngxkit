@@ -1,5 +1,10 @@
-import { attribute, collection, Model } from 'ngx-db'
-import { Article } from './Article'
+import { attribute, ChildModel, collection, Model } from 'ngx-db'
+
+export class Article extends ChildModel {
+  public id: number
+  public title: string
+  public description: string
+}
 
 export class Publication extends Model {
   @attribute({ primary: true }) id?: number

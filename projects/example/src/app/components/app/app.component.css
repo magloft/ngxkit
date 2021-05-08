@@ -1,0 +1,51 @@
+:host {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  background: #ffffff;
+  border-bottom: 1px solid #f3f3ff;
+}
+
+.header-item {
+  padding: 30px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #2196f3;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+a.header-item:hover {
+  color: #125c99;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 32px;
+  flex: 1;
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper {
+    padding: 16px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .wrapper {
+    padding: 8px;
+  }
+}
