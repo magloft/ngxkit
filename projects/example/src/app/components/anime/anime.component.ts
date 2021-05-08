@@ -1,17 +1,20 @@
-import { Component, HostListener, ViewChild } from '@angular/core'
-import { NgxAnimeComponent } from 'projects/ngx-anime/src/components/anime/anime.component'
+import { Component, HostListener } from '@angular/core'
 
 @Component({ selector: 'app-anime', templateUrl: './anime.component.html', styleUrls: ['./anime.component.css'] })
 export class AnimeComponent {
-  @ViewChild(NgxAnimeComponent) anime: NgxAnimeComponent
+  public animeActive: boolean = false
+
+  // @ViewChild(NgxAnimeComponent) anime: NgxAnimeComponent
 
   @HostListener('mouseenter', ['$event']) onMouseEnter(event: MouseEvent) {
     event.preventDefault()
-    this.anime.play()
+    // this.anime.play()
+    this.animeActive = true
   }
 
   @HostListener('mouseleave', ['$event']) onMouseLeave(event: MouseEvent) {
     event.preventDefault()
-    this.anime.reverse()
+    // this.anime.reverse()
+    this.animeActive = false
   }
 }

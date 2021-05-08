@@ -1,4 +1,4 @@
-import { Component, Directive, ElementRef, Host, Input, OnInit } from '@angular/core'
+import { Component, Directive, ElementRef, Host, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core'
 import anime from 'animejs'
 
 @Directive({ selector: '[ngxAnimate]' })
@@ -17,13 +17,26 @@ export class NgxAnimateDirective implements OnInit {
   styleUrls: ['./anime.component.scss'],
   templateUrl: './anime.component.html'
 })
-export class NgxAnimeComponent implements OnInit {
+export class NgxAnimeComponent implements OnInit, OnChanges {
   @Input() timeline: anime.AnimeParams = {}
+  @Input() active?: boolean
 
   private instance: anime.AnimeTimelineInstance
 
   ngOnInit() {
     this.instance = anime.timeline({ autoplay: false, ...this.timeline })
+    if (this.active && this.instance.paused) {
+      this.play()
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (!changes.active || !this.instance) { return }
+    if (changes.active.currentValue === true) {
+      this.play()
+    } else if (changes.active.currentValue === false) {
+      this.reverse()
+    }
   }
 
   add(animation: anime.AnimeAnimParams) {
