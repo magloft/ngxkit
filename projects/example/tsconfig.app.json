@@ -2,14 +2,9 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/app",
-    "types": [
-      "node"
-    ],
-    "lib": [
-      "es2018",
-      "esnext.asynciterable",
-      "dom"
-    ]
+    "types": ["node"],
+    "lib": ["es2018", "esnext.asynciterable", "dom"],
+    "allowSyntheticDefaultImports": true
   },
   "files": [
     "src/main.ts",

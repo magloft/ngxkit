@@ -5,6 +5,7 @@
     "extensions": [".ts", ".html"]
   },
   "editor.rulers": [160],
+  "html.format.enable": false,
   "html.format.wrapLineLength": 160,
   "html.format.extraLiners": "",
   "html.format.indentInnerHtml": true,

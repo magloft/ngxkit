@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
+import { NgxAnimateDirective, NgxAnimeComponent } from './components/anime/anime.component'
 
 @NgModule({
-  declarations: [],
+  declarations: [NgxAnimeComponent, NgxAnimateDirective],
   imports: [CommonModule],
-  exports: []
+  exports: [NgxAnimeComponent, NgxAnimateDirective]
 })
 export class NgxAnimeModule { }

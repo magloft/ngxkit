@@ -2,6 +2,7 @@
   "name": "ngx-anime",
   "version": "11.2.12",
   "peerDependencies": {
+    "animejs": "~3.2.1",
     "@angular/common": "~11.2.12",
     "@angular/core": "~11.2.12",
     "@angular/platform-browser": "~11.2.12"
