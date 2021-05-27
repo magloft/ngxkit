@@ -1,4 +1,4 @@
-import { Component, Directive, ElementRef, Host, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core'
+import { ChangeDetectionStrategy, Component, Directive, ElementRef, Host, Input, NgZone, OnChanges, OnInit, SimpleChanges } from '@angular/core'
 import anime from 'animejs'
 
 @Directive({ selector: '[ngxAnimate]' })
@@ -12,16 +12,14 @@ export class NgxAnimateDirective implements OnInit {
   }
 }
 
-@Component({
-  selector: 'ngx-anime',
-  styleUrls: ['./anime.component.scss'],
-  templateUrl: './anime.component.html'
-})
+@Component({ selector: 'ngx-anime', styleUrls: ['./anime.component.scss'], templateUrl: './anime.component.html', changeDetection: ChangeDetectionStrategy.OnPush })
 export class NgxAnimeComponent implements OnInit, OnChanges {
   @Input() timeline: anime.AnimeParams = {}
   @Input() active?: boolean
 
   private instance: anime.AnimeTimelineInstance
+
+  constructor(private readonly zone: NgZone) { }
 
   ngOnInit() {
     this.instance = anime.timeline({ autoplay: false, ...this.timeline })
@@ -44,22 +42,26 @@ export class NgxAnimeComponent implements OnInit, OnChanges {
   }
 
   play(): Promise<void> {
-    if (this.instance.reversed) {
-      this.instance.reverse()
-    } else {
-      this.instance.play()
-    }
-    if (this.instance.paused) { this.instance.play() }
+    this.zone.runOutsideAngular(() => {
+      if (this.instance.reversed) {
+        this.instance.reverse()
+      } else {
+        this.instance.play()
+      }
+      if (this.instance.paused) { this.instance.play() }
+    })
     return this.instance.finished
   }
 
   reverse(): Promise<void> {
-    if (this.instance.reversed) {
-      this.instance.play()
-    } else {
-      this.instance.reverse()
-    }
-    if (this.instance.paused) { this.instance.play() }
+    this.zone.runOutsideAngular(() => {
+      if (this.instance.reversed) {
+        this.instance.play()
+      } else {
+        this.instance.reverse()
+      }
+      if (this.instance.paused) { this.instance.play() }
+    })
     return this.instance.finished
   }
 }
