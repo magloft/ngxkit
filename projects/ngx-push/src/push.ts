@@ -101,7 +101,7 @@ export class SwPush {
    *
    * [Mozilla Notification]: https://developer.mozilla.org/en-US/docs/Web/API/Notification
    */
-  readonly notificationClicks: Observable<{action: string; notification: NotificationOptions & { title: string }}>
+  readonly notificationClicks: Observable<{ action: string; notification: NotificationOptions & { title: string } }>
 
   /**
    * Emits the currently active
@@ -109,6 +109,10 @@ export class SwPush {
    * associated to the Service Worker registration or `null` if there is no subscription.
    */
   readonly subscription: Observable<NgxPushSubscription | null>
+
+  get registration() {
+    return this.pushManager
+  }
 
   /**
    * True if the Service Worker is enabled (supported by the browser and enabled via
@@ -122,7 +126,7 @@ export class SwPush {
   private _pushManager?: PushManagerBase
   private subscriptionChanges = new Subject<NgxPushSubscription | null>()
 
-  constructor(private sw: NgswCommChannel, @Inject(WEB_PUSH_ID) private  webPushId: string) {
+  constructor(private sw: NgswCommChannel, @Inject(WEB_PUSH_ID) private webPushId: string) {
     if (!sw.isEnabled) {
       this.messages = NEVER
       this.notificationClicks = NEVER
@@ -135,8 +139,8 @@ export class SwPush {
 
     this.pushManager = this.sw.registration.pipe(map((registration) => {
       this._pushManager = this.isBrowserSafari()
-      ? new PushManagerSafari(registration, webPushId)
-      : new PushManagerChrome(registration)
+        ? new PushManagerSafari(registration, webPushId)
+        : new PushManagerChrome(registration)
       return this._pushManager
     }))
 

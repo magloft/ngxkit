@@ -19,6 +19,7 @@ export interface NgxPushSubscription {
   getKey(name: PushEncryptionKeyName): ArrayBuffer | null
   toJSON(): NgxPushSubscriptionJSON
   unsubscribe(): Promise<boolean>
+  getRegistration(): ServiceWorkerRegistration
 }
 
 export abstract class PushManagerBase {

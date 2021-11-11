@@ -1,6 +1,6 @@
 {
   "name": "ngx-push",
-  "version": "11.2.12",
+  "version": "11.2.14",
   "peerDependencies": {
     "@angular/common": "~11.2.12",
     "@angular/core": "~11.2.12"

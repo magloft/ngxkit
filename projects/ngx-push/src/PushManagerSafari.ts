@@ -32,7 +32,7 @@ export class PushSubscriptionSafari implements NgxPushSubscription {
   readonly expirationTime: number | null = null
   readonly options: PushSubscriptionOptions = null
 
-  constructor(private subscription: SafariPushSubscriptionNative) { }
+  constructor(private subscription: SafariPushSubscriptionNative, private registration: ServiceWorkerRegistration) { }
 
   getKey(): null { return null }
   toJSON(): NgxPushSubscriptionJSON {
@@ -40,9 +40,8 @@ export class PushSubscriptionSafari implements NgxPushSubscription {
     return { deviceToken, permission }
   }
 
-  async unsubscribe(): Promise<boolean> {
-    return true
-  }
+  async unsubscribe(): Promise<boolean> { return true }
+  getRegistration() { return this.registration }
 }
 
 export class PushManagerSafari extends PushManagerBase {
@@ -55,7 +54,7 @@ export class PushManagerSafari extends PushManagerBase {
     if (permissionState !== 'granted') { return null }
     const nativeSubscription = window.safari.pushNotification.permission(this.webPushId)
     if (!nativeSubscription) { return null }
-    return new PushSubscriptionSafari(nativeSubscription)
+    return new PushSubscriptionSafari(nativeSubscription, this.registration)
   }
 
   async permissionState(): Promise<PushPermissionState> {
@@ -73,6 +72,6 @@ export class PushManagerSafari extends PushManagerBase {
         }
       })
     })
-    return new PushSubscriptionSafari(subscription)
+    return new PushSubscriptionSafari(subscription, this.registration)
   }
 }
