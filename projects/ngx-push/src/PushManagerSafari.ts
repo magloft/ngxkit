@@ -10,7 +10,7 @@ export interface SafariPushSubscriptionNative {
 export interface SafariPush {
   pushNotification: {
     permission: (webPushID: string) => SafariPushSubscriptionNative
-    requestPermission(url: string, websitePushID: string, userInfo: { [ key: string]: any }, callback: (data: SafariPushSubscriptionNative) => void)
+    requestPermission(url: string, websitePushID: string, userInfo: { [key: string]: any }, callback: (data: SafariPushSubscriptionNative) => void)
   }
 }
 
@@ -32,7 +32,7 @@ export class PushSubscriptionSafari implements NgxPushSubscription {
   readonly expirationTime: number | null = null
   readonly options: PushSubscriptionOptions = null
 
-  constructor(private subscription: SafariPushSubscriptionNative) {}
+  constructor(private subscription: SafariPushSubscriptionNative) { }
 
   getKey(): null { return null }
   toJSON(): NgxPushSubscriptionJSON {
@@ -47,6 +47,8 @@ export class PushSubscriptionSafari implements NgxPushSubscription {
 
 export class PushManagerSafari extends PushManagerBase {
   constructor(registration: ServiceWorkerRegistration, private webPushId: string) { super(registration) }
+
+  getRegistration() { return this.registration }
 
   async getSubscription(): Promise<NgxPushSubscription | null> {
     const permissionState = await this.permissionState()

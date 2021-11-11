@@ -1,7 +1,7 @@
 import { NgxPushSubscription, NgxPushSubscriptionJSON, PushManagerBase } from './PushManagerBase'
 
 export class PushSubscriptionChrome implements PushSubscription, NgxPushSubscription {
-  constructor(private subscription: PushSubscription) {}
+  constructor(private subscription: PushSubscription) { }
   readonly provider: string = 'chrome'
   get expirationTime(): number | null { return this.subscription.expirationTime }
   get options(): PushSubscriptionOptions { return this.subscription.options }
@@ -12,6 +12,8 @@ export class PushSubscriptionChrome implements PushSubscription, NgxPushSubscrip
 }
 
 export class PushManagerChrome extends PushManagerBase {
+  getRegistration() { return this.registration }
+
   async getSubscription(): Promise<NgxPushSubscription | null> {
     const subscription = await this.registration.pushManager.getSubscription()
     if (!subscription) { return null }
