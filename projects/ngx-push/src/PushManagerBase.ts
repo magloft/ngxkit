@@ -26,6 +26,6 @@ export abstract class PushManagerBase {
   constructor(protected registration: ServiceWorkerRegistration) { }
   abstract getRegistration(): ServiceWorkerRegistration
   abstract getSubscription(): Promise<NgxPushSubscription | null>
-  abstract permissionState(options: NgxPushSubscriptionOptionsInit): Promise<PushPermissionState>
+  abstract permissionState(options: NgxPushSubscriptionOptionsInit): Promise<PermissionState>
   abstract subscribe(options: NgxPushSubscriptionOptionsInit): Promise<NgxPushSubscription>
 }

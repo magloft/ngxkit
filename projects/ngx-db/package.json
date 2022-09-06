@@ -1,12 +1,12 @@
 {
   "name": "ngx-db",
-  "version": "11.2.12",
+  "version": "14.2.0",
   "peerDependencies": {
-    "@angular/common": "~11.2.12",
-    "@angular/core": "~11.2.12",
-    "inflection": "1.13.1"
+    "@angular/common": ">=14.2.0",
+    "@angular/core": ">=14.2.0",
+    "inflection": ">=1.13.1"
   },
   "dependencies": {
-    "tslib": "^2.2.0"
+    "tslib": "^2.3.0"
   }
 }

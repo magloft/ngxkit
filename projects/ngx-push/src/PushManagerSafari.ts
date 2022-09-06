@@ -20,7 +20,7 @@ declare global {
   }
 }
 
-const PERMISSION_MAP: { [key in SafariPermission]: PushPermissionState } = {
+const PERMISSION_MAP: { [key in SafariPermission]: PermissionState } = {
   default: 'prompt',
   granted: 'granted',
   denied: 'denied'
@@ -57,7 +57,7 @@ export class PushManagerSafari extends PushManagerBase {
     return new PushSubscriptionSafari(nativeSubscription, this.registration)
   }
 
-  async permissionState(): Promise<PushPermissionState> {
+  async permissionState(): Promise<PermissionState> {
     const permissionData = window.safari.pushNotification.permission(this.webPushId)
     return PERMISSION_MAP[permissionData.permission]
   }

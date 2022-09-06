@@ -3,18 +3,16 @@
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
     "declarationMap": true,
-    "target": "es2015",
+    "target": "ES2015",
     "declaration": true,
     "inlineSources": true,
-    "types": [],
-    "lib": [
-      "dom",
-      "es2018"
-    ]
+    "lib": ["dom", "es2020", "WebWorker"],
+    "skipLibCheck": true
   },
   "angularCompilerOptions": {
     "skipTemplateCodegen": true,
     "strictMetadataEmit": true,
     "enableResourceInlining": true
-  }
+  },
+  "exclude": ["node_modules", "../../node_modules"]
 }
