@@ -86,7 +86,6 @@
             "main": "projects/example/src/main.ts",
             "polyfills": "projects/example/src/polyfills.ts",
             "tsConfig": "projects/example/tsconfig.app.json",
-            "aot": false,
             "assets": ["projects/example/src/favicon.ico", "projects/example/src/assets"],
             "styles": ["projects/example/src/styles.css"],
             "scripts": []
