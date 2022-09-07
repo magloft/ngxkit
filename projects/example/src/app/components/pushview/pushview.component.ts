@@ -13,8 +13,8 @@ export enum StackPaneId { ONE = 'one', TWO = 'two' }
 export class PushviewComponent {
   activePaneId: StackPaneId = StackPaneId.ONE
   stackConfigs: NgxPushviewStackConfig[] = [
-    { id: 'one', label: 'Stack One', component: StackOneComponent },
-    { id: 'two', label: 'Strack Two', component: StackTwoComponent, resolve: { timeout: StackResolver } }
+    { id: 'one', label: 'Stack One', simple: true, component: StackOneComponent },
+    { id: 'two', label: 'Strack Two', simple: true, component: StackTwoComponent, resolve: { timeout: StackResolver } }
   ]
 
   constructor() { }

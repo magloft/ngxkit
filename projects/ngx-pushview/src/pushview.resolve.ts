@@ -2,8 +2,9 @@ import { Type } from '@angular/core'
 
 export interface NgxPushviewStackConfig {
   id: string
-  label: string
+  label?: string
   component: Type<any>
+  simple?: boolean
   resolve?: NgxPushviewResolveData
   data?: NgxPushviewResolveData
 }
